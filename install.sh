@@ -90,8 +90,8 @@ install_zsh_plugins() {
 # Function to install Powerlevel10k theme
 install_powerlevel10k() {
     echo "Installing Powerlevel10k theme..."
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/powerlevel10k" &> /dev/null & spin
-    echo "source '$ZSH_CUSTOM/powerlevel10k/powerlevel10k.zsh-theme'" >>~/.zshrc
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k" &> /dev/null & spin
+    echo "source '$ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme'" >>~/.zshrc
 }
 
 # Function to copy configuration files
