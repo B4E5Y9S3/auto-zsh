@@ -5,6 +5,7 @@ set -o pipefail  # Prevent errors in a pipeline from being masked
 
 # Define the list of required packages
 PACKAGES=("zsh" "git" "openssh" "which" "neovim" "fzf")
+ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 
 spin () {
 
@@ -81,7 +82,6 @@ install_oh_my_zsh() {
 # Function to install Zsh plugins
 install_zsh_plugins() {
     echo "Installing Zsh plugins..."
-    ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
     git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions" &> /dev/null & spin
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" &> /dev/null & spin
     git clone https://github.com/zsh-users/zsh-completions.git "$ZSH_CUSTOM/plugins/zsh-completions" &> /dev/null & spin
@@ -90,8 +90,8 @@ install_zsh_plugins() {
 # Function to install Powerlevel10k theme
 install_powerlevel10k() {
     echo "Installing Powerlevel10k theme..."
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k &> /dev/null & spin
-    echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/powerlevel10k" &> /dev/null & spin
+    echo "source '$ZSH_CUSTOM/powerlevel10k/powerlevel10k.zsh-theme'" >>~/.zshrc
 }
 
 # Function to copy configuration files
